@@ -4,19 +4,24 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        int km;
-        double perKm = 2.20, total, startPrice = 10;
+        int r;
+        double pi = 3.14;
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Mesafeyi KM cinsinden giriniz: ");
-        km = input.nextInt();
+        r = input.nextInt();
 
-        total = km* perKm;
-        total += startPrice;
+        double alan = pi*r*r;
+        double cevre = 2*pi*r;
 
-        total = (total <20) ? 20 : total;
-        System.out.println("toplam tutar: "+total);
+        System.out.println("Acıyı giriniz: ");
+        int a = input.nextInt();
+
+        double acıAlan = (pi*(r*r)*a)/360;
+
+        System.out.println("Alan: "+alan);
+        System.out.println("Cevre: "+cevre);
+        System.out.println("Açısı a olan alan: "+acıAlan);
 
 
 
