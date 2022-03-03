@@ -4,20 +4,19 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        double tutar, kdvOran, kdvTutar, kdvliTutar;
-        kdvOran = 0.18;
+        int a,b;
+        double c;
 
         Scanner input = new Scanner(System.in);
-        System.out.print("Tutar: ");
-        tutar = input.nextDouble();
 
-        kdvTutar = tutar* kdvOran;
-        kdvliTutar = tutar + kdvTutar;
+        System.out.print("Ucgenin bir kenarını girin: ");
+        a = input.nextInt();
+        System.out.print("Ucgenin diger kenarını girin: ");
+        b = input.nextInt();
 
-        System.out.println("KDV'siz tutar: "+tutar);
-        System.out.println("KDV oranı: "+kdvOran);
-        System.out.println("KDV tutarı: "+kdvTutar);
-        System.out.println("KDVli tutar: "+kdvliTutar);
+        c = Math.sqrt((a*a)+ (b*b));
+        System.out.println("Hipotenüs: "+c);
+
 
 
 
