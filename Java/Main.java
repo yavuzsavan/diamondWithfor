@@ -4,18 +4,19 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        int a,b;
-        double c;
+        int km;
+        double perKm = 2.20, total, startPrice = 10;
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Ucgenin bir kenarını girin: ");
-        a = input.nextInt();
-        System.out.print("Ucgenin diger kenarını girin: ");
-        b = input.nextInt();
+        System.out.print("Mesafeyi KM cinsinden giriniz: ");
+        km = input.nextInt();
 
-        c = Math.sqrt((a*a)+ (b*b));
-        System.out.println("Hipotenüs: "+c);
+        total = km* perKm;
+        total += startPrice;
+
+        total = (total <20) ? 20 : total;
+        System.out.println("toplam tutar: "+total);
 
 
 
