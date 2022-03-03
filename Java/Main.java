@@ -4,28 +4,21 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        int fizik, mat, kimya, turkce, tarih, muzik;
+        double tutar, kdvOran, kdvTutar, kdvliTutar;
+        kdvOran = 0.18;
 
         Scanner input = new Scanner(System.in);
+        System.out.print("Tutar: ");
+        tutar = input.nextDouble();
 
-        System.out.println("Fizik Notu: ");
-        fizik = input.nextInt();
+        kdvTutar = tutar* kdvOran;
+        kdvliTutar = tutar + kdvTutar;
 
-        System.out.println("Matematik Notu: ");
-        mat = input.nextInt();
-        System.out.println("Kimya Notu: ");
-        kimya = input.nextInt();
-        System.out.println("Turkce Notu: ");
-        turkce = input.nextInt();
-        System.out.println("Tarih Notu: ");
-        tarih = input.nextInt();
-        System.out.println("Muzik Notu: ");
-        muzik = input.nextInt();
+        System.out.println("KDV'siz tutar: "+tutar);
+        System.out.println("KDV oranı: "+kdvOran);
+        System.out.println("KDV tutarı: "+kdvTutar);
+        System.out.println("KDVli tutar: "+kdvliTutar);
 
-        int toplam = (fizik+ mat+ kimya+ turkce+ tarih+ muzik);
-        double ortalama = toplam/ 6;
-
-        System.out.println("Not Ortalaması: "+ ortalama);
 
 
 
