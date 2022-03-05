@@ -4,23 +4,36 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        double kilo, boy, index;
+        int n1, n2;
+        char sign;
 
-        Scanner input = new Scanner(System.in);
+        Scanner sc= new Scanner(System.in);
 
-        System.out.print("Kilo: ");
-        kilo = input.nextDouble();
+        System.out.println("Type 1st number:");
+        n1 = sc.nextInt();
 
-        System.out.print("Boy(metre cinsinden-nokta ile-): ");
-        boy = input.nextDouble();
+        System.out.println("Type 2nd number:");
+        n2 = sc.nextInt();
 
-        index = kilo / (boy*boy);
-        System.out.print("Index: "+ index);
+        System.out.println("Choose the process{ +:addition -:substraction *:multiplication /:divison }");
+        sign = sc.next().charAt(0);
 
-        
-
-
-
-
+        switch(sign){
+            case '+': System.out.println(n1+" + "+n2+" = "+(n1+n2));
+                break;
+            case '-': System.out.println(n1+" - "+n2+" = "+(n1-n2));
+                break;
+            case '*': System.out.println(n1+" * "+n2+" = "+(n1*n2));
+                break;
+            case '/': 
+                if(n2 != 0){
+                    System.out.println(n1+" / "+n2+" = "+(n1/n2));
+                }
+                else{
+                    System.out.println("You cant divide a number to zero!!!");
+                }
+                break;
+            default: System.out.println("Invalid sign!!!");
+        }
     }
 }
