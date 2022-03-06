@@ -4,36 +4,95 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        int n1, n2;
-        char sign;
+        int age, km, type;
+        double price=0, discount, discountRatio, roundRatio = 0.2, perKm = 0.1;
+        boolean isValid = false;
 
-        Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Type 1st number:");
-        n1 = sc.nextInt();
+        System.out.print("How much km: ");
+        km = sc.nextInt();
 
-        System.out.println("Type 2nd number:");
-        n2 = sc.nextInt();
+        System.out.print("\nYour age: ");
+        age = sc.nextInt();
 
-        System.out.println("Choose the process{ +:addition -:substraction *:multiplication /:divison }");
-        sign = sc.next().charAt(0);
+        System.out.print("\n1=>One Way, 2=>Round Trip : ");
+        type = sc.nextInt();
 
-        switch(sign){
-            case '+': System.out.println(n1+" + "+n2+" = "+(n1+n2));
-                break;
-            case '-': System.out.println(n1+" - "+n2+" = "+(n1-n2));
-                break;
-            case '*': System.out.println(n1+" * "+n2+" = "+(n1*n2));
-                break;
-            case '/': 
-                if(n2 != 0){
-                    System.out.println(n1+" / "+n2+" = "+(n1/n2));
-                }
-                else{
-                    System.out.println("You cant divide a number to zero!!!");
-                }
-                break;
-            default: System.out.println("Invalid sign!!!");
+        if(km >0){
+        price = km*perKm;
         }
+        else{
+            isValid= true;
+        }
+        if(0<age && age <12){
+            discountRatio= 0.5;
+            discount = price*discountRatio;
+            price -= discount;
+            if(type == 2){
+                discount = 0;
+                discount = price*roundRatio;
+                price = (price - discount)*2;
+            }
+            else if(type == 1){
+                price*= 1;
+            }
+            else{
+                isValid= true;
+            }
+        }
+        else if(12<=age && age<24){
+            discountRatio = 0.1;
+            discount = price*discountRatio;
+            price -= discount;
+            if(type == 2){
+                discount =0;
+                discount = price*roundRatio;
+                price = (price - discount)*2;
+            }
+            else if(type == 1){
+                price*= 1;
+            }
+            else{
+                isValid= true;
+            }
+        }
+        else if(24<=age && age<65){
+            price*= 1;
+            if(type == 2){
+                discount = 0;
+                discount = price*roundRatio;
+                price = (price - discount)*2;
+            }
+            else if(type == 1){
+                price*= 1;
+            }
+            else{
+                isValid= true;
+            }
+        }
+        else if(age>=65){
+            discountRatio = 0.3;
+            discount = price*discountRatio;
+            price -= discount;
+            if(type == 2){
+                discount = 0;
+                discount = price*roundRatio;
+                price = (price - discount)*2;
+            }
+            else if(type == 1){
+                price*= 1;
+            }
+            else{
+                isValid= true;
+            }
+        }
+        if(isValid){
+            System.out.println("Invalid Character");
+        }
+        else{
+            System.out.println("Age: "+age+ "\nKm: "+km+ "\nType: "+type+ "\nPrice: "+price+"TL");
+        }
+
     }
 }
