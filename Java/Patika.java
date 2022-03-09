@@ -2,25 +2,28 @@ package Java;
 import java.util.*;
 
 public class Patika {
-    public static String reverseString(String str){
-        char ch[]=str.toCharArray();  
-        String rev="";  
-        for(int i=ch.length-1;i>=0;i--){  
-            rev+=ch[i];  
-        }  
-        return rev; 
-}
     public static void main(String[] args){
-        String str = "" ;
-        String ch = "";
-
-        Scanner sc = new Scanner(System.in);
-        str = sc.nextLine();
+        int n;
+        Scanner scan = new Scanner(System.in);
+        n = scan.nextInt();
         
-        //System.out.println(reverseString(str));
-        for(int i = 0; i<str.length(); i++){
-            ch = str.charAt(i) + ch;
+        for(int i = 1; i <= n-1; i++){
+            for(int j = 0; j < n-i+1; j++){
+                System.out.print(" ");
+            }
+            for(int k = 0; k< (2*i)-1; k++){
+                System.out.print("*");
+            }
+            System.out.println();
         }
-        System.out.println(ch);
+        for(int i = n; i>0; i--){
+            for(int k = 0; k<(n-i)+1;k++){
+                System.out.print(" ");
+            }
+            for(int j = 0; j < 2*i-1; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 }
