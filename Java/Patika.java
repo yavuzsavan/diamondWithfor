@@ -2,27 +2,25 @@ package Java;
 import java.util.*;
 
 public class Patika {
+    public static String reverseString(String str){
+        char ch[]=str.toCharArray();  
+        String rev="";  
+        for(int i=ch.length-1;i>=0;i--){  
+            rev+=ch[i];  
+        }  
+        return rev; 
+}
     public static void main(String[] args){
-        int n, top = 0, basamak=0, temp, j;
+        String str = "" ;
+        String ch = "";
 
-        Scanner scan = new Scanner(System.in);
-        n = scan.nextInt();
-        temp = n;
-
-        while(temp != 0){
-            temp /= 10;
-            basamak ++;
+        Scanner sc = new Scanner(System.in);
+        str = sc.nextLine();
+        
+        //System.out.println(reverseString(str));
+        for(int i = 0; i<str.length(); i++){
+            ch = str.charAt(i) + ch;
         }
-        temp = n;
-       for(int i = 1; i <= basamak ; i++){
-           j = temp % 10 ;
-           temp /= 10;
-           top += Math.pow(j, basamak);
-        }
-        if( n == top){
-            System.out.println(n+" An Armstrong number");
-        }else{
-            System.out.println(n+" Not an Armstrong number.");
-        }
-   }   
+        System.out.println(ch);
+    }
 }
